@@ -1,0 +1,184 @@
+*
+{
+    font-family: "Verdana";   
+
+}
+
+body
+{
+    text-align: center;
+    margin: 0px;
+}
+
+
+a:hover 
+{
+    text-decoration: underline;
+}
+
+div#divLogotipoSistema
+{
+    background-color: #1e9bde;
+    height: 70px;
+}
+
+img#imgLogotipoSistema
+{
+    height: 60%;
+    vertical-align: middle;
+}
+
+span#spanAuxiliardeAlinhamentoVertical 
+{
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+img#imgIconeUsuario
+{
+    width: 100px;
+}
+
+h1{
+    color: #1e9bde ;
+    background-color: #eeeeee ;
+    text-transform: uppercase;
+    font-style: italic;
+    font-size: 20px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-left: 10px solid #1e9bde;
+    border-right: 10px solid #1e9bde;
+    border-top: 2px solid #1e9bde;
+    border-bottom: 2px solid #1e9bde;
+    border-radius: 30px;
+
+}
+
+div#mensagemErro
+{
+    width: 400px;
+    background-color: #d40000;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    padding: 10px;
+}
+
+div#divUsuarioLogado
+{
+    background-color: #7bc2e5;
+    color: white;
+    line-height: 40px;
+}
+
+img#imgIconeCarrinho
+{
+    height: 50px;
+}
+
+fieldset
+{
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 2px;
+}
+
+input, textarea, select
+{
+    border: 2px solid #1e9bde;
+    height: 35px;
+    margin-bottom: 6px;
+}
+
+textarea
+{
+    width: 300px;
+    height: 100px;
+}
+
+input[type=text] , input[type=password], select
+{
+    font-size: 16px;
+    width: 140px;
+    padding-left: 8px;
+}
+
+input[type=button], input[type=submit] 
+{
+    background-color: #1e9bde;
+    border-bottom: 3px solid #0153b0;
+    border-top: 1px solid #0153b0;
+    border-left: 1px solid #0153b0;
+    border-right: 1px solid #0153b0;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 5px 8px;
+}
+
+input[type=button]:hover, input[type=submit]:hover{
+    background-color: #69c5ee;
+    border-color: #1e9bde ;
+}
+
+table
+{
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #cccccc;
+    font-size: 16px;
+    border-spacing: 1px;
+}
+
+tr:nth-child(even)
+{
+    background-color: #dddddd;
+}
+
+tr:nth-child(odd)
+{
+    background-color: #ffffff;
+}
+
+th
+{
+    background-color: #1e9bde;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+td
+{
+    padding: 10px;
+}
+
+div#mensagemDeSucesso
+{
+    background-color: #0baf00;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.inputError
+{
+    border: 2px solid #ff2828
+}
+
+div#divImagemCategoria
+{
+    display: inline-block;
+    margin: 10px;
+}
+
+
