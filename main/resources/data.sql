@@ -1,4 +1,3 @@
-USE bluefooddb;
 
 INSERT INTO categoria_restaurante (nome, imagem) VALUES ('Pizza', '0001-categoria.png');
 INSERT INTO categoria_restaurante (nome, imagem) VALUES ('Sanduíche', '0002-categoria.png');
