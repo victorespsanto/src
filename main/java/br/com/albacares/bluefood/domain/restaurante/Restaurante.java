@@ -20,6 +20,7 @@ import javax.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
 
 import br.com.albacares.bluefood.domain.usuario.Usuario;
+import br.com.albacares.bluefood.util.FileType;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -71,10 +72,9 @@ public class Restaurante extends Usuario {
 		
 		if (getId() == null) {
 			throw new IllegalStateException("É preciso primeiro gravar o registro");
-		}
+		}		
 		
-		//TODO corrigir a extensão do arquivo do logotipo
-		this.logotipo = String.format("%4d-logo.%s", getId(), ".png");
+		this.logotipo = String.format("%4d-logo.%s", getId(), FileType.of(logotipoFile.getContentType()).getExtension());
 		
 	}
 	
