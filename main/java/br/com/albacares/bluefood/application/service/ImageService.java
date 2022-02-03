@@ -1,4 +1,4 @@
-package br.com.albacares.bluefood.application;
+package br.com.albacares.bluefood.application.service;
 
 import java.io.IOException;
 
