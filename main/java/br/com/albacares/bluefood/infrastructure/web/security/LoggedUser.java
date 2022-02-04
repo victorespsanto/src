@@ -32,13 +32,13 @@ public class LoggedUser implements UserDetails {
 		}
 		
 		this.role = role;
-		this.roles = List.of(new SimpleGrantedAuthority("ROLE_" + role ));
+		this.roles = List.of(new SimpleGrantedAuthority("ROLE_" + role));
 			
 	}
  
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {		
-		return null;
+		return roles;
 	}
 
 	@Override

@@ -18,5 +18,5 @@ public class LoginController {
 		model.addAttribute("msg", "Credenciais inválidas");
 		return "login";
 	}
-	
+
 }

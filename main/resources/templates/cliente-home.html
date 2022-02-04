@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html 
+
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+	
+
+	<body>
+		   
+		<div layout:fragment="content">
+		
+		<div>
+	
+		    <div>
+		        <h1>É hora de rangar!</h1>
+		        <form action="" method="post">
+		            <fieldset>
+		                <input type="text" name="busca" placeholder="Buscar por...">
+		                <input type="button" value="Procurar">
+		
+		            </fieldset>
+		        </form>
+		    </div>
+		
+		    <div >
+		        <div id="divImagemCategoria">
+		            <a href="#">
+		                <img src="images/sys_categoriaChurrasco.png" alt="">
+		                <br />
+		                <span>Churrasco</span>
+		            </a>
+		        </div>
+		        <div id="divImagemCategoria">
+		            <a href="#">
+		                <img src="images/sys_categoriaHamburguer.png" alt="">
+		                <br />
+		                <span>Hamburguer</span>
+		            </a>
+		        </div>
+		        <div id="divImagemCategoria">
+		            <a href="#">
+		                <img src="images/sys_categoriaPizza.png" alt="">
+		                <br />
+		                <span>Pizza</span>
+		            </a>
+		        </div>
+		        <div id="divImagemCategoria">
+		            <a href="#">
+		                <img src="images/sys_categoriaSalada.png" alt="">
+		                <br />
+		                <span>Salada</span>
+		            </a>
+		        </div>
+		        <div id="divImagemCategoria">
+		            <a href="#">
+		                <img src="images/sys_categoriaSobremesa.png" alt="">
+		                <br />
+		                <span>Sobremesa</span>
+		            </a>
+		        </div>
+		
+		    </div>
+		
+		
+		    <div>
+		        <h1>Últimos pedidos</h1>
+		        <input type="button" value="#1245656 NcBlunalds"><br/>        
+		        <input type="button" value="#1245689 Blue Pizza"><br/>        
+		        <input type="button" value="#1256982 Hard Blue"><br/>
+		    </div>
+		
+		    <div>
+		        <h1>Conta</h1>
+		        <input type="button" value="Meus dados" th:onclick="'location.href=\'' + @{/cliente/edit} + '\';'" ><br />
+		        <input type="button" value="Sair" th:onclick="'location.href=\'' + @{/logout} + '\';'" ><br />
+		    </div>
+		
+		</div>
+	
+	    
+	</body>
+</html>

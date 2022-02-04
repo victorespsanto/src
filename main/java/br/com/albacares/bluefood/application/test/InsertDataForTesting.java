@@ -37,9 +37,9 @@ public class InsertDataForTesting {
 	
 	@EventListener
 	public void onApplicationEvent(ContextRefreshedEvent event) {
-		/*Cliente[] clientes = */clientes();
-		Restaurante[] restaurantes = restaurantes();
-		itensCardapio(restaurantes);
+		Cliente[] clientes = clientes();
+		//Restaurante[] restaurantes = restaurantes();
+		itensCardapio(restaurantes());
 		
 	}
 	
