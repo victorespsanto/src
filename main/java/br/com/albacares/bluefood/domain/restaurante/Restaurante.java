@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -70,6 +71,9 @@ public class Restaurante extends Usuario {
 	@ToString.Exclude
 	private Set<CategoriaRestaurante> categorias =  new HashSet<>(0);
 	
+	@OneToMany(mappedBy = "restaurante")
+	private Set<ItemCardapio> itensCardapio = new HashSet<>(0);
+		
 	public void setLogotipoFileName() {
 		
 		if (getId() == null) {
