@@ -28,6 +28,13 @@ img#imgLogotipoSistema
     vertical-align: middle;
 }
 
+span#restauranteOpcaoTitulo
+{
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+
 span#spanAuxiliardeAlinhamentoVertical 
 {
     display: inline-block;
@@ -55,6 +62,17 @@ h1{
     border-bottom: 2px solid #1e9bde;
     border-radius: 30px;
 
+}
+
+img#imgIconeRestaurante
+{
+	width: 100px;
+}
+
+input#inputSelecionado
+{
+	background-color: #69c5ee;
+	border-color: #1e9bde;
 }
 
 div#mensagemErro
@@ -170,6 +188,12 @@ div#mensagemDeSucesso
     padding: 10px;
 }
 
+img#imgCategoriaComida
+{
+	height: 50%;
+}
+
+
 .inputError
 {
     border: 2px solid #ff2828
@@ -180,5 +204,15 @@ div#divImagemCategoria
     display: inline-block;
     margin: 10px;
 }
+
+div#divCategoriasComidaOpcao
+{
+	background-color: #ffffff;
+	width: 20%;
+	height: 130px;
+	float: left;
+	
+}
+
 
 

@@ -2,65 +2,38 @@
 <html 
 
 	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}" th:with="link=@{/cliente/home}">
 	
 
 	<body>
 		   
 		<div layout:fragment="content">
-		
-		<div>
-	
-		    <div>
-		        <h1>É hora de rangar!</h1>
-		        <form action="" method="post">
-		            <fieldset>
-		                <input type="text" name="busca" placeholder="Buscar por...">
-		                <input type="button" value="Procurar">
-		
-		            </fieldset>
-		        </form>
-		    </div>
-		
-		    <div >
-		        <div id="divImagemCategoria">
-		            <a href="#">
-		                <img src="images/sys_categoriaChurrasco.png" alt="">
-		                <br />
-		                <span>Churrasco</span>
-		            </a>
-		        </div>
-		        <div id="divImagemCategoria">
-		            <a href="#">
-		                <img src="images/sys_categoriaHamburguer.png" alt="">
-		                <br />
-		                <span>Hamburguer</span>
-		            </a>
-		        </div>
-		        <div id="divImagemCategoria">
-		            <a href="#">
-		                <img src="images/sys_categoriaPizza.png" alt="">
-		                <br />
-		                <span>Pizza</span>
-		            </a>
-		        </div>
-		        <div id="divImagemCategoria">
-		            <a href="#">
-		                <img src="images/sys_categoriaSalada.png" alt="">
-		                <br />
-		                <span>Salada</span>
-		            </a>
-		        </div>
-		        <div id="divImagemCategoria">
-		            <a href="#">
-		                <img src="images/sys_categoriaSobremesa.png" alt="">
-		                <br />
-		                <span>Sobremesa</span>
-		            </a>
-		        </div>
-		
-		    </div>
-		
+			<form id="form" method="get" th:object="${searchFilter}"  th:action="@{/cliente/search}" >	
+				<input id="searchType" type="hidden" th:field="*{searchType}"  />
+        		<input id="categoriaId" type="hidden" th:field="*{categoriaId}"  />
+			    
+			    <div>
+			        <h1>É hora de rangar!</h1>
+			        
+			            <fieldset>			            	
+			                <input type="text" th:field="*{texto}" placeholder="Buscar por...">
+			                <input type="button" value="Procurar" onclick="searchRest(null);">			
+			            </fieldset>
+			     
+			    </div>
+			
+			    <div >
+			        <div id="divImagemCategoria" th:each="categoria : ${categorias}">
+			            <a href="#" th:onclick="'searchRest(' + ${categoria.id} + ');'">		            	
+			                <img th:src="@{/images/categoria/} + ${categoria.imagem}" id="imagemCategoriaComida" alt="" />
+			                <br />
+			                <span th:text="${categoria.nome}"></span>
+			            </a>
+			        </div>
+			        
+			
+			    </div>
+		    </form>
 		
 		    <div>
 		        <h1>Últimos pedidos</h1>

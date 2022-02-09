@@ -41,7 +41,7 @@ img#imgIconeUsuario
 }
 
 h1{
-    color: #1e9bde ;
+    color: #000000;
     background-color: #eeeeee ;
     text-transform: uppercase;
     font-style: italic;
@@ -80,12 +80,13 @@ img#imgIconeCarrinho
     height: 50px;
 }
 
+
 fieldset
 {
     width: 400px;
     margin-left: auto;
     margin-right: auto;
-    border-width: 2px;
+    border-width: 2px;    
 }
 
 input, textarea, select
@@ -180,5 +181,26 @@ div#divImagemCategoria
     display: inline-block;
     margin: 10px;
 }
+
+div#divRestaurantesOpcao
+{
+	background-color: #ffffff;
+	width: 50px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#restauranteOpcaoTitulo
+{
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+span#testeTeste
+{
+	font-size: 50px;
+}
+
 
 
