@@ -102,4 +102,9 @@ public class ClienteController {
 		return "cliente-busca";
 	}
 	
+	@GetMapping(path = "/restaurante")
+	public String viewRestaurante() {
+		return "cliente-restaurante";
+	}
+	
 }

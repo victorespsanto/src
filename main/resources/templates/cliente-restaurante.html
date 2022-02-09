@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html 
+
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}" th:with="link=@{/cliente/home}">
+	
+
+	<body>
+		   
+		<div layout:fragment="content">
+
+		    <div>        
+		        <img src="images/sys_restauranteSbubby.png" alt="">
+		        <br>
+		        <span>Nome do Restaurante</span>
+		        <br>
+		        <span>Categoria de comida</span>
+		        <br>
+		        <span>Tempo médio de Entrega: 40min</span>
+		        <br>   
+		        <span>Taxa de Entrega: R$ 15,00</span>  
+		        <br>
+		    </div>
+		    
+		    <div>
+		        <h1>Opções</h1>
+		        <fieldset>
+		            <legend>Filtros</legend>
+		            <input type="button" value="Promoções">
+		            <input type="button" value="Saladas">
+		            <input type="button" value="Bebidas">
+		            <input type="button" value="Pizzas">
+		            
+		        </fieldset>
+		        <br>
+		    </div>
+		
+		    <div>
+		        <h1>Destaques</h1>
+		    </div>
+		
+		    <div>
+		        <div>
+		            <img src="images/sys_comidaPizzaCalabresa.png" alt="">
+		            <br>
+		            <span>Pizza de Calabresa</span>
+		            <br>
+		            <span>Massa fina, queijo, calabresa e pimenta</span><br>
+		            <span>R$ 45,00</span><br>
+		
+		            <form action="" method="post">
+		                <label for="quantidade">Quantidade: </label><br>
+		                <select name="quantidade" id="quantidade">
+		                    <option value="">1</option>
+		                    <option value="">2</option>
+		                    <option value="">3</option>
+		                    <option value="">4</option>
+		                </select>
+		                <br><br>
+		                Observaçõs
+		                <br>
+		                <textarea name="" id="" cols="30" rows="10"></textarea>
+		                <br><br>
+		                <input type="button" value="Adionar ao carrinho">
+		            </form>
+		
+		        </div>
+		
+		        <div>
+		            <img src="images/sys_comidaHamburguer.png" alt="">
+		            <br>
+		            <span>Hamburguer</span>
+		            <br>
+		            <span>Pão, hamburguer 200g, queijo, tomate, alface e bacon</span><br>
+		            <span>R$ 30,00</span><br>
+		
+		            <form action="" method="post">
+		                <label for="quantidade">Quantidade: </label><br>
+		                <select name="quantidade" id="quantidade">
+		                    <option value="">1</option>
+		                    <option value="">2</option>
+		                    <option value="">3</option>
+		                    <option value="">4</option>
+		                </select>
+		                <br><br>
+		                Observaçõs
+		                <br>
+		                <textarea name="" id="" cols="30" rows="10"></textarea>
+		                <br><br>
+		                <input type="button" value="Adionar ao carrinho">
+		            </form>
+		
+		        </div>
+		    </div>
+		    <br>
+		
+		    <input type="button" value="Voltar" onclick="location.href='clienteHome.html'" />
+		
+		</div>    
+
+	</body>
+</html>
