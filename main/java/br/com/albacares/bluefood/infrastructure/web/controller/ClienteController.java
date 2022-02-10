@@ -23,6 +23,7 @@ import br.com.albacares.bluefood.domain.cliente.ClienteRepository;
 import br.com.albacares.bluefood.domain.restaurante.CategoriaRestaurante;
 import br.com.albacares.bluefood.domain.restaurante.CategoriaRestauranteRepository;
 import br.com.albacares.bluefood.domain.restaurante.Restaurante;
+import br.com.albacares.bluefood.domain.restaurante.RestauranteRepository;
 import br.com.albacares.bluefood.domain.restaurante.SearchFilter;
 import br.com.albacares.bluefood.util.SecurityUtils;
 
@@ -38,6 +39,9 @@ public class ClienteController {
 	
 	@Autowired
 	private ClienteService clienteService;
+	
+	@Autowired
+	private RestauranteRepository restauranteRepository;
 	
 	@Autowired
 	private RestauranteService restauranteService;
@@ -99,11 +103,22 @@ public class ClienteController {
 		
 		model.addAttribute("searchFilter", filter);
 		
+		model.addAttribute("cep", SecurityUtils.loggedCliente().getCep());
+		
 		return "cliente-busca";
 	}
 	
 	@GetMapping(path = "/restaurante")
-	public String viewRestaurante() {
+	public String viewRestaurante(
+			@RequestParam("restauranteId") Integer restauranteId,
+			Model model) {
+		
+		Restaurante restaurante = restauranteRepository.findById(restauranteId).orElseThrow();
+		
+		model.addAttribute("restaurante", restaurante);
+		
+		model.addAttribute("cep", SecurityUtils.loggedCliente().getCep());
+		
 		return "cliente-restaurante";
 	}
 	

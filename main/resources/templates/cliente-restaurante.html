@@ -10,23 +10,18 @@
 		<div layout:fragment="content">
 
 		    <div>        
-		        <img src="images/sys_restauranteSbubby.png" alt="">
-		        <br>
-		        <span>Nome do Restaurante</span>
-		        <br>
-		        <span>Categoria de comida</span>
-		        <br>
-		        <span>Tempo médio de Entrega: 40min</span>
-		        <br>   
-		        <span>Taxa de Entrega: R$ 15,00</span>  
-		        <br>
+		        <img th:src="@{/images/logotipo/} + ${restaurante.logotipo}" id="imgIconeRestaurante" alt=""> <br/>	<br/>		       
+		        <span id="restauranteOpcaoTitulo" th:text="${restaurante.nome}"></span><br />		        
+		        <span id="restauranteOpcaoCategoria" th:text="${restaurante.categoriasAsText}"></span><br />		     
+		        <span id="restauranteOpcaoTempo" th:text="'Tempo médio de entrega: ' + ${restaurante.calcularTempoEntrega(cep)} + 'min'"></span><br />		     
+		        <span id="restauranteOpcaoTaxa" th:text="'Taxa de Entrega: ' + ${#numbers.formatCurrency(restaurante.taxaEntrega)}"></span><br />		        
 		    </div>
 		    
 		    <div>
 		        <h1>Opções</h1>
 		        <fieldset>
 		            <legend>Filtros</legend>
-		            <input type="button" value="Promoções">
+		            <input id="inputSelecionado" type="button" value="Promoções">
 		            <input type="button" value="Saladas">
 		            <input type="button" value="Bebidas">
 		            <input type="button" value="Pizzas">
@@ -43,7 +38,7 @@
 		        <div>
 		            <img src="images/sys_comidaPizzaCalabresa.png" alt="">
 		            <br>
-		            <span>Pizza de Calabresa</span>
+		            <span id="restauranteOpcaoTitulo">Pizza de Calabresa</span>
 		            <br>
 		            <span>Massa fina, queijo, calabresa e pimenta</span><br>
 		            <span>R$ 45,00</span><br>
@@ -69,7 +64,7 @@
 		        <div>
 		            <img src="images/sys_comidaHamburguer.png" alt="">
 		            <br>
-		            <span>Hamburguer</span>
+		            <span id="restauranteOpcaoTitulo">Hamburguer</span>
 		            <br>
 		            <span>Pão, hamburguer 200g, queijo, tomate, alface e bacon</span><br>
 		            <span>R$ 30,00</span><br>
