@@ -69,6 +69,11 @@ img#imgIconeRestaurante
 	width: 120px;
 }
 
+img#imgIconeComida
+{
+	width: 120px;
+}
+
 input#inputSelecionado
 {
 	background-color: #69c5ee;
