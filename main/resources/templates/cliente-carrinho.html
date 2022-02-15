@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html 
+
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}" th:with="link=@{/cliente/home}">
+	
+
+	<body>
+		   
+		<div layout:fragment="content">
+		   
+		   <div>
+		   		<img th:src="@{images/bf_iconeCarrinho.png}" alt="" id="imgIconeCarrinho">
+		   </div> 
+		   
+		   <div>
+		       <h1>SEU PEDIDO</h1>
+		       <img th:if="${carrinho.restaurante != null}" th:src="@{/images/logotipo/} + ${carrinho.restaurante.logotipo}" id="imgIconeRestaurante">
+		   </div>
+		   <br><br>
+		   
+		   <div th:each="item : ${carrinho.itens}">
+		       <span id="restauranteOpcaoTitulo" th:text="${item.itemCardapio.nome}" ></span><br>
+		       <span id="restauranteOpcaoTaxa"   th:text="'Quantidade: ' + ${item.quantidade}" ></span><br>
+		       <span id="restauranteOpcaoTaxa"   th:text="${item.observacoes}" ></span><br>
+		       <span id="restauranteOpcaoTaxa"   th:text="${#numbers.formatCurrency(item.preco)}"></span><br>
+		       <br>
+		       <input type="button" value="Remover">
+		   </div>
+		   <br><br>
+		
+		    <div>
+		        <span id="restauranteOpcaoTitulo">Taxa de entrega</span><br />
+		        <span id="restauranteOpcaoTaxa"   th:text="${#numbers.formatCurrency(carrinho.restaurante.taxaEntrega)}" ></span><br />
+		    </div>
+		    <br><br>
+		
+		    <div>
+		        <span id="restauranteOpcaoTitulo">Total</span><br />
+		        <span id="restauranteOpcaoTaxa"   th:text="${#numbers.formatCurrency(carrinho.getPrecoTotal(true))}" ></span><br />
+		    </div>
+		    <br><br>
+		
+		    <div>
+		        <span id="restauranteOpcaoTitulo">Cartão de crédito</span><br>
+		        <input type="text" name="cartao" id="">
+		    </div>
+		    <br>
+		    <div>
+		        <input type="button" value="Enviar pedido"><br>
+		        <input type="button" value="Voltar" onclick="location.href='clienteHome.html'">
+		    </div>
+		
+	
+	    </div>
+	    
+	</body>
+</html>

@@ -48,7 +48,7 @@
 		            <span th:text="${item.descricao}"></span><br>		            
 		            <span th:text="${#numbers.formatCurrency(item.preco)}"></span><br /><br />
 		
-		            <form action="@{/cliente/carrinho/adicionar}" method="get">
+		            <form action="get" th:action="@{/cliente/carrinho/adicionar}" >
 		            	<input type="hidden" name="itemId" th:value="${item.id}">
 		                <label for="quantidade">Quantidade: </label><br>
 		                <select name="quantidade" id="quantidade">
@@ -80,7 +80,7 @@
 		            <span th:text="${item.descricao}"></span><br>		            
 		            <span th:text="${#numbers.formatCurrency(item.preco)}"></span><br /><br />
 		
-		            <form action="@{/cliente/carrinho/adicionar}" method="get">
+		            <form action="get" th:action="@{/cliente/carrinho/adicionar}" >
 		            	<input type="hidden" name="itemId" th:value="${item.id}">
 		                <label for="quantidade">Quantidade: </label><br>
 		                <select name="quantidade" id="quantidade">
