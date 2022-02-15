@@ -46,15 +46,19 @@
 			        <span id="restauranteOpcaoTaxa"   th:text="${#numbers.formatCurrency(carrinho.getPrecoTotal(true))}" ></span><br />
 			    </div>
 			    <br><br>
-			
+			    
+			    <div>
+			    	<input type="button" value="Continuar comprando" th:onclick="'location.href=\'' + @{/cliente/restaurante} + '?restauranteId=' + ${carrinho.restaurante.id}  + '\';'">
+			    	<br><br>
+				</div>
+				
 			    <div>
 			        <span id="restauranteOpcaoTitulo">Cartão de crédito</span><br>
 			        <input type="text" name="cartao" id="">
 			    </div>
 			    <br>
 			    <div>
-			        <input type="button" value="Enviar pedido"><br>
-			        <input type="button" value="Voltar" onclick="location.href='clienteHome.html'">
+			        <input type="button" value="Enviar pedido"><br>			        
 			    </div>
 		    </div>
 		    
