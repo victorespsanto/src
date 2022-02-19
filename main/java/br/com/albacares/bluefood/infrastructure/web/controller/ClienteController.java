@@ -20,6 +20,8 @@ import br.com.albacares.bluefood.application.service.RestauranteService;
 import br.com.albacares.bluefood.application.service.ValidationException;
 import br.com.albacares.bluefood.domain.cliente.Cliente;
 import br.com.albacares.bluefood.domain.cliente.ClienteRepository;
+import br.com.albacares.bluefood.domain.pedido.Pedido;
+import br.com.albacares.bluefood.domain.pedido.PedidoRepository;
 import br.com.albacares.bluefood.domain.restaurante.CategoriaRestaurante;
 import br.com.albacares.bluefood.domain.restaurante.CategoriaRestauranteRepository;
 import br.com.albacares.bluefood.domain.restaurante.ItemCardapio;
@@ -49,6 +51,9 @@ public class ClienteController {
 	private RestauranteRepository restauranteRepository;
 	
 	@Autowired
+	private PedidoRepository pedidoRepository;
+	
+	@Autowired
 	private RestauranteService restauranteService;
 	
 	@GetMapping(path = "/home")
@@ -58,6 +63,10 @@ public class ClienteController {
 		model.addAttribute("categorias", categorias);
 		
 		model.addAttribute("searchFilter", new SearchFilter());
+		
+		List<Pedido> pedidos = pedidoRepository.listPedidosByCliente(SecurityUtils.loggedCliente().getId());
+		
+		model.addAttribute("pedidos", pedidos);
 		
 		return "cliente-home";
 	}

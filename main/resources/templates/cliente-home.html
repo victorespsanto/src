@@ -37,10 +37,14 @@
 		
 		    <div>
 		        <h1>Últimos pedidos</h1>
-		        <input type="button" value="#1245656 NcBlunalds"><br/>        
-		        <input type="button" value="#1245689 Blue Pizza"><br/>        
-		        <input type="button" value="#1256982 Hard Blue"><br/>
+		        
+		        <div th:each="pedido : ${pedidos}">
+		        	<input type="button" th:value="${pedido.getFormattedId()} + ' ' + ${pedido.restaurante.nome}" 
+		        	th:onclick="'location.href=\'' + @{/cliente/pedido/view} + '?pedidoId=' + ${pedido.id} +'\';'"><br/>        
+		        </div>
+		        <span th:if="${pedidos.size() == 0}">Não há nenhum pedido anterior</span>
 		    </div>
+		    <br />
 		
 		    <div>
 		        <h1>Conta</h1>
