@@ -52,14 +52,17 @@
 			    	<br><br>
 				</div>
 				
-			    <div>
-			        <span id="restauranteOpcaoTitulo">Cartão de crédito</span><br>
-			        <input type="text" name="cartao" id="">
-			    </div>
-			    <br>
-			    <div>
-			        <input type="button" value="Enviar pedido"><br>			        
-			    </div>
+				<form method="post" th:action="@{/cliente/pagamento/pagar}">
+				    <div>
+				        <span id="restauranteOpcaoTitulo">Cartão de crédito</span><br>
+				        <input type="text" name="numCartao" id="inputLargo">
+				    </div>
+				    <br>
+				    <div>
+				        <input type="submit" value="Enviar pedido"><br>			        
+				    </div>				    
+			    </form>
+			    
 		    </div>
 		    
 	    </div>
