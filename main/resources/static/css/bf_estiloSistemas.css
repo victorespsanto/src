@@ -4,6 +4,12 @@
 
 }
 
+
+input#inputLargo
+{
+	width: 300px;
+}
+
 body
 {
     text-align: center;
