@@ -20,7 +20,7 @@
 		         <br />
 		         
 						
-				<form method="post" th:object="${restaurante}" th:action="${EditMode} ? @{/restaurante/save} : @{/public/restaurante/save}" enctype="multipart/form-data">
+				<form method="post" th:object="${restaurante}" th:action="${EditMode} ? @{/public/restaurante/save} : @{/restaurante/save}" enctype="multipart/form-data">
 					<fieldset>
 					
 						<input type="hidden" th:field="*{id}">
