@@ -1,6 +1,7 @@
 package br.com.albacares.bluefood.application.test;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -12,6 +13,9 @@ import org.springframework.stereotype.Component;
 
 import br.com.albacares.bluefood.domain.cliente.Cliente;
 import br.com.albacares.bluefood.domain.cliente.ClienteRepository;
+import br.com.albacares.bluefood.domain.pedido.Pedido;
+import br.com.albacares.bluefood.domain.pedido.Pedido.Status;
+import br.com.albacares.bluefood.domain.pedido.PedidoRepository;
 import br.com.albacares.bluefood.domain.restaurante.CategoriaRestaurante;
 import br.com.albacares.bluefood.domain.restaurante.CategoriaRestauranteRepository;
 import br.com.albacares.bluefood.domain.restaurante.ItemCardapio;
@@ -33,23 +37,38 @@ public class InsertDataForTesting {
 	private CategoriaRestauranteRepository categoriaRestauranteRepository;
 	
 	@Autowired
+	private PedidoRepository pedidoRepository;
+	
+	@Autowired
 	private ItemCardapioRepository itemCardapioRepository;
 	
 	@EventListener
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		Cliente[] clientes = clientes();
-		//Restaurante[] restaurantes = restaurantes();
-		itensCardapio(restaurantes());
+		Restaurante[] restaurantes = restaurantes();
+		itensCardapio(restaurantes);
+		
+		Pedido p = new Pedido();
+		p.setData(LocalDateTime.now());
+		p.setCliente(clientes[0]);
+		p.setRestaurante(restaurantes[0]);
+		p.setStatus(Status.Producao);
+		p.setSubtotal(BigDecimal.valueOf(10));
+		p.setTaxaEntrega(BigDecimal.valueOf(2));	
+		p.setTotal(BigDecimal.valueOf(12));
+		pedidoRepository.save(p);
 		
 	}
+	
+
 	
 	private Restaurante[] restaurantes() {
 		List<Restaurante> restaurantes = new ArrayList<>(); 
 		
-		CategoriaRestaurante categoriaPizza = categoriaRestauranteRepository.findById(1).orElseThrow(NoSuchElementException::new);
-		CategoriaRestaurante categoriaSanduiche = categoriaRestauranteRepository.findById(2).orElseThrow(NoSuchElementException::new);
-		CategoriaRestaurante categoriaSobremesa = categoriaRestauranteRepository.findById(5).orElseThrow(NoSuchElementException::new);
-		CategoriaRestaurante categoriaJapones = categoriaRestauranteRepository.findById(6).orElseThrow(NoSuchElementException::new);
+		CategoriaRestaurante categoriaPizza = categoriaRestauranteRepository.findById(1).orElseThrow();
+		CategoriaRestaurante categoriaSanduiche = categoriaRestauranteRepository.findById(2).orElseThrow();
+		CategoriaRestaurante categoriaSobremesa = categoriaRestauranteRepository.findById(5).orElseThrow();
+		CategoriaRestaurante categoriaJapones = categoriaRestauranteRepository.findById(6).orElseThrow();
 		
 		Restaurante r = new Restaurante();
 		r.setNome("Bubger King");

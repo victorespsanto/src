@@ -13,16 +13,20 @@
 				<h1>Configurações</h1>
 				<input type="button" value="Dados básicos" th:onclick="'location.href=\'' + @{/restaurante/edit} + '\';'"><br>
 				<input type="button" value="Comidas" th:onclick="'location.href=\'' + @{/restaurante/comidas} + '\';'"><br>
-				<input type="button" value="Relatório de Pedidos"  onclick="location.href='restauranteRelatorioPedidos.html'"><br>
-				<input type="button" value="Relatório de Itens"  onclick="location.href='restauranteRelatorioItens.html'" /><br>
+				<input type="button" value="Relatório de Pedidos"  th:onclick="'location.href=\'' + @{/restaurante/relatorio/pedidos} + '\';'"><br>
+				<input type="button" value="Relatório de Itens"  th:onclick="'location.href=\'' + @{/restaurante/relatorio/itens} + '\';'"><br>
 				<input type="button" value="Sair" th:onclick="'location.href=\'' + @{/logout} + '\';'"><br>
 			</div>
 			
 			<div>
 				<h1>Pedidos em andamento</h1>
-				<input type="submit" value="#35334" onclick="location.href='restaurantePedido.html'" /><br>
-				<input type="submit" value="#8956" onclick="location.href='restaurantePedido.html'"><br>
-				<input type="submit" value="#14214" onclick="location.href='restaurantePedido.html'"><br>
+				
+				<div th:each="pedido : ${pedidos}">
+					<input type="button" th:value="${pedido.formattedId}" 
+						th:onclick="'location.href=\'' + @{/restaurante/pedido} + '?pedidoId=' + ${pedido.id} + '\';'" /><br>
+				</div>
+				
+				
 			</div>
 		
 		</div>

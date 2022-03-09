@@ -33,7 +33,7 @@ public class Pedido implements Serializable{
 	public enum Status {
 		Producao(1, "Em produção", false),
 		Entrega(2, "Saiu para entrega", false),
-		Concluido(3, "Concluídoo", true);
+		Concluido(3, "Concluído", true);
 		
 		Status(int ordem, String descricao, boolean ultimo) {
 			this.ordem = ordem;
@@ -56,11 +56,21 @@ public class Pedido implements Serializable{
 		public boolean isUltimo() {
 			return ultimo;
 		}
+		
+		public static Status fromOrdem(int ordem) {
+			for (Status status : Status.values()) {
+				if (status.getOrdem() == ordem) {
+					return status;
+				}
+			}
+			
+			return null;
+		}
 	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer Id;
+	private Integer id;
 	
 	@NotNull
 	private LocalDateTime data;
@@ -90,8 +100,19 @@ public class Pedido implements Serializable{
 	private Set<ItemPedido> itens;
 	
 	public String getFormattedId() {
-		return String.format("#%04d", Id);
+		return String.format("#%04d", id);
 	}
+	
+	public void definirProximoStatus() {
+		int ordem = status.getOrdem();
+		
+		Status newStatus = Status.fromOrdem(ordem + 1);
+		
+		if (newStatus != null) {
+			this.status = newStatus;
+		}
+	}
+	
 	
 
 }
